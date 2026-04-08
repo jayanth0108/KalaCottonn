@@ -954,11 +954,13 @@
       position: relative;
       background: #121611;
       border-radius: 8px;
-      border: 6px solid #2a221b; /* Woody frame */
+      border: 6px solid #2a221b;
+      /* Woody frame */
       border-top-width: 12px;
       border-bottom-width: 12px;
       overflow: hidden;
-      perspective: 800px; /* For 3D warp shedding effect */
+      perspective: 800px;
+      /* For 3D warp shedding effect */
     }
 
     /* Vertical warp threads */
@@ -981,7 +983,7 @@
       transform: translateZ(10px) translateY(-5px);
       background: #E8E5DF;
       opacity: 0.9;
-      box-shadow: 0 5px 8px rgba(0,0,0,0.5);
+      box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
     }
 
     .warp-down {
@@ -1006,13 +1008,21 @@
       height: 6px;
       display: flex;
       gap: 0px;
-      margin-top: -1px; /* Slight overlap for twisted realism */
+      margin-top: -1px;
+      /* Slight overlap for twisted realism */
       animation: weaveIn 0.3s ease;
     }
 
     @keyframes weaveIn {
-      from { transform: scaleY(0); opacity: 0; }
-      to { transform: scaleY(1); opacity: 1; }
+      from {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+
+      to {
+        transform: scaleY(1);
+        opacity: 1;
+      }
     }
 
     .woven-cell {
@@ -1030,14 +1040,15 @@
       height: 14px;
       background: linear-gradient(180deg, #4a3b32, #2a221b);
       border-bottom: 2px solid #1a1611;
-      box-shadow: 0 10px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
       transform: translateY(-20px);
       transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
       z-index: 10;
     }
 
     .beater.strike {
-      transform: translateY(182px); /* Slams down to pack the thread */
+      transform: translateY(182px);
+      /* Slams down to pack the thread */
     }
 
     /* Shuttle animation */
@@ -1050,7 +1061,8 @@
       background: var(--clay);
       border-radius: 5px;
       transform: translateY(-50%);
-      transition: left 0.15s linear; /* Faster logic */
+      transition: left 0.15s linear;
+      /* Faster logic */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1409,7 +1421,7 @@
   <div id="page-product-detail" class="page active page-content-pad">
 
     <div class="nav">
-      
+
       <span class="nav-logo">Kala <span>Cotton</span></span>
       <span style="font-size:0.7rem;letter-spacing:0.12em;color:rgba(255,255,255,0.35);">
         <button style="background:none;border:none;color:var(--clay-light);cursor:pointer;font-size:1rem;"
@@ -1435,7 +1447,7 @@
           <span class="chip chip-clay">Kala Cotton</span>
           <span class="chip chip-sage">Handwoven</span>
         </div>
-        <h1 id="prodName">Kutch Kala Cotton<br />Stole</h1>
+        <h1 id="prodName">Kutch Kala Cotton</h1>
         <p class="product-sub" id="prodSub">Hand-spun, hand-dyed, naturally grown cotton from the Rann of Kutch</p>
       </div>
 
@@ -1649,16 +1661,57 @@
       <!-- Controls -->
       <div class="sim-controls">
         <style>
-          @keyframes shakeErr { 0%, 100% {transform:translateX(0);} 25% {transform:translateX(-6px);} 75% {transform:translateX(6px);} }
-          .shake { animation: shakeErr 0.2s ease-in-out; }
-          .loom-error { opacity:0; color:#b73a3a; font-size:0.8rem; font-weight:600; text-align:center; height:1.2rem; margin-bottom:8px; transition:opacity 0.2s; }
-          .console-btn { flex:1; padding:12px 0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font-size:0.8rem; transition:all 0.2s;}
-          .console-btn span { font-size:1.5rem; }
+          @keyframes shakeErr {
+
+            0%,
+            100% {
+              transform: translateX(0);
+            }
+
+            25% {
+              transform: translateX(-6px);
+            }
+
+            75% {
+              transform: translateX(6px);
+            }
+          }
+
+          .shake {
+            animation: shakeErr 0.2s ease-in-out;
+          }
+
+          .loom-error {
+            opacity: 0;
+            color: #b73a3a;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            height: 1.2rem;
+            margin-bottom: 8px;
+            transition: opacity 0.2s;
+          }
+
+          .console-btn {
+            flex: 1;
+            padding: 12px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+          }
+
+          .console-btn span {
+            font-size: 1.5rem;
+          }
         </style>
         <button class="btn btn-primary full-width" id="startBtn" onclick="startSimulator()">
           🧵 Start Weaving Simulator
         </button>
-        
+
         <div id="activeConsole" style="display:none; width:100%;">
           <div class="loom-error" id="loomError">Error message</div>
           <div style="display:flex; gap:8px;">
@@ -1674,7 +1727,8 @@
           </div>
         </div>
 
-        <button class="btn btn-sage full-width" id="resetBtn" onclick="resetSimulator()" style="display:none; margin-top:12px;">
+        <button class="btn btn-sage full-width" id="resetBtn" onclick="resetSimulator()"
+          style="display:none; margin-top:12px;">
           ↺ Try Again
         </button>
       </div>
@@ -1734,8 +1788,9 @@
   <!-- ══════════════════════════════════
      BOTTOM NAV
 ══════════════════════════════════ -->
-    <nav class="bottom-nav">
-    <button class="bottom-nav-item active" id="bnav-product" onclick="goToPage('page-product-detail');setActiveNav('bnav-product')">
+  <nav class="bottom-nav">
+    <button class="bottom-nav-item active" id="bnav-product"
+      onclick="goToPage('page-product-detail');setActiveNav('bnav-product')">
       <span class="bottom-nav-icon">🏷</span>
       <span class="bottom-nav-label">Product</span>
     </button>
@@ -1750,12 +1805,12 @@
     </button>
   </nav>
 
-  
+
   <script>
     const productsData = {
       'kala-cotton': {
         id: 'KYF-KTC-2024-0087',
-        name: 'Kutch Kala Cotton<br/>Stole',
+        name: 'Kutch Kala Cotton',
         sub: 'Hand-spun, hand-dyed, naturally grown cotton from the Rann of Kutch',
         chips: ['Kala Cotton', 'Handwoven'],
         fabric: 'Kala Cotton',
@@ -1911,10 +1966,10 @@
       document.getElementById('prodWeaveTime').innerText = data.weaveTime;
       document.getElementById('prodWidth').innerText = data.width;
 
-      
+
       const chipsHtml = data.chips.map((c, i) => `<span class="chip ${i === 0 ? 'chip-clay' : 'chip-sage'}">${c}</span>`).join('');
       document.getElementById('prodChips').innerHTML = chipsHtml;
-      
+
       const sustainHtml = data.sustainItems.map(item => `
         <div class="sustain-item">
           <span class="si-icon">${item.icon}</span>
@@ -1954,7 +2009,7 @@
       document.getElementById('resultHighlight').innerHTML = `
         "You created <span id="resultRows">0</span> rows —<br />
         about 1 cm of fabric.<br /><br />
-        A real artisan needs <strong>${data.simData.time.replace('~','')}</strong> to weave this product by hand."
+        A real artisan needs <strong>${data.simData.time.replace('~', '')}</strong> to weave this product by hand."
       `;
       document.getElementById('resultSub').innerHTML = `
         ${data.artisanName} has done this for ${data.artisanYears}.<br />
@@ -2119,11 +2174,11 @@
         return;
       }
       // Valid beat
-      loomState = 0; 
+      loomState = 0;
       updateConsoleUI();
       document.getElementById('btnBeater').style.transform = 'scale(0.92)';
       setTimeout(() => document.getElementById('btnBeater').style.transform = '', 100);
-      
+
       // STEP 3: BEATING UP
       const beater = document.getElementById('beater');
       beater.classList.add('strike');
@@ -2145,13 +2200,13 @@
         for (let i = 0; i < WARP_COUNT; i++) {
           const cell = document.createElement('div');
           cell.className = 'woven-cell';
-          cell.style.background = (i % 2 === rowsWoven % 2) ? color : '#a9a081'; 
+          cell.style.background = (i % 2 === rowsWoven % 2) ? color : '#a9a081';
           rowEl.appendChild(cell);
         }
-        
+
         const container = document.getElementById('wovenRows');
         container.prepend(rowEl);
-        
+
         while (container.children.length > 40) container.removeChild(container.lastChild);
         updateStats();
       }, 150);
